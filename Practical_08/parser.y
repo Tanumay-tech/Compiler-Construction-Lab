@@ -1,6 +1,7 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int yylex(void);
 void yyerror(const char *s);
@@ -27,6 +28,7 @@ expr:
                           $$ = $1 / $2;
                       }
                     }
+  | expr expr '^'   { $$ = (int)pow($1, $2); }
   | NUMBER          { $$ = $1; }
   ;
 
@@ -37,7 +39,7 @@ void yyerror(const char *s) {
 }
 
 int main(void) {
-    printf("Enter Postfix Expression (e.g. 5 3 4 * +):\n");
+    printf("Enter Postfix Expression (e.g. 2 3 ^ or 5 3 4 * +):\n");
     yyparse();
     return 0;
 }
