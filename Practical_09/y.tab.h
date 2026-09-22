@@ -55,7 +55,9 @@ extern int yydebug;
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
     NUMBER = 258,                  /* NUMBER  */
-    UMINUS = 259                   /* UMINUS  */
+    INC = 259,                     /* INC  */
+    DEC = 260,                     /* DEC  */
+    UMINUS = 261                   /* UMINUS  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -65,7 +67,9 @@ extern int yydebug;
 #define YYerror 256
 #define YYUNDEF 257
 #define NUMBER 258
-#define UMINUS 259
+#define INC 259
+#define DEC 260
+#define UMINUS 261
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -75,7 +79,7 @@ union YYSTYPE
 
     double val;
 
-#line 79 "y.tab.h"
+#line 83 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

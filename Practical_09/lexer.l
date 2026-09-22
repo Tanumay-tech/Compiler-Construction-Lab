@@ -7,6 +7,8 @@
 %%
 
 [0-9]+(\.[0-9]+)?   { yylval.val = atof(yytext); return NUMBER; }
+"++"                { return INC; }
+"--"                { return DEC; }
 [ \t]               { /* ignore whitespace */ }
 \n                  { return '\n'; }
 .                   { return yytext[0]; }
